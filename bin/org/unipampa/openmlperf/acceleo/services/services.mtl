@@ -1,0 +1,19 @@
+[comment encoding = Cp1252 /]
+[module services('http://www.unipampa.lesse.org/openmlperfPerformanceScenario', 'http://www.unipampa.lesse.org/openmlperfPerformanceScripting', 'http://www.unipampa.lesse.org/openmlperf')/]
+
+[query public retornaTable(arg0 : DataTable) : String
+	= invoke('org.unipampa.openmlperf.acceleo.services.Services', 'retornaTable(openmlperf.openmlperfPerformanceScenario.openmlperfPerformanceScripting.DataTable)', Sequence{arg0})
+/]
+
+[query public retornaDataTable(arg0 : Scripting) : String
+	= invoke('org.unipampa.openmlperf.acceleo.services.Services', 'retornaDataTable(openmlperf.openmlperfPerformanceScenario.Scripting)', Sequence{arg0})
+/]
+
+[query public retornaAtividades(arg0 : Scripting) : String
+	= invoke('org.unipampa.openmlperf.acceleo.services.Services', 'retornaAtividades(openmlperf.openmlperfPerformanceScenario.Scripting)', Sequence{arg0})
+/]
+
+[query public returnTableParam(arg0 : Activity) : String
+	= invoke('org.unipampa.openmlperf.acceleo.services.Services', 'returnTableParam(openmlperf.openmlperfPerformanceScenario.openmlperfPerformanceScripting.Activity)', Sequence{arg0})
+/]
+

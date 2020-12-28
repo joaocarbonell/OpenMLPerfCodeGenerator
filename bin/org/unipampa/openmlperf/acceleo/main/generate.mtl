@@ -1,0 +1,85 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.unipampa.lesse.org/openmlperf', 'http://www.unipampa.lesse.org/openmlperfPerfoamnceExternalFile', 'http://www.unipampa.lesse.org/openmlperfPerformanceMetric', 'http://www.unipampa.lesse.org/openmlperfPerformanceMetricMonitoring', 'http://www.unipampa.lesse.org/openmlperfPerformanceScenario', 'http://www.unipampa.lesse.org/openmlperfPerformanceWorkload', 'http://www.unipampa.lesse.org/openmlperfPerformanceScripting')]
+[import org::unipampa::openmlperf::acceleo::services::services/]
+
+
+[template public generateElement(aScenario : Scenario)]
+[comment @main/]
+[file (aScenario.name.concat('.scala'), false, 'UTF-8')]
+package [aScenario.projectLabel.toLower().trim()/] 
+
+import scala.concurrent.duration._
+
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
+import io.gatling.jdbc.Predef._
+
+class [aScenario.name.toUpperFirst().trim()/] extends Simulation{
+
+
+[for (scripting : Scripting | aScenario.scripting)]
+
+	object [scripting.name/] {
+
+[for (datatable : DataTable | scripting.datatables)]
+
+
+[retornaTable(datatable)/]
+
+
+[/for]
+
+	
+
+	val [scripting.name.toLowerCase()/] = scenario("RecordedSimulation")
+
+	
+			[for (activity : Activity| scripting.activities)]
+	
+	
+			.exec(http("request_0")
+			.[activity.method.toString().toLowerCase()/]("[activity.action/]")
+	
+			[returnTableParam(activity)/]
+	
+			[/for]
+
+
+	
+	}
+[/for]
+
+[for (user : UserProfile | aScenario.users)]
+	//[user.name/] [user.percentage/]%
+[/for]
+
+[for (work : Workload | aScenario.workloads)]
+	//[work.name/] : [work.virtualUsers/] virtual users
+		[work.rampUpTimer.time/]
+		[work.rampUpUsers.virtualUsers/]
+[/for]
+
+val httpProtocol = http
+		.baseUrl("[aScenario.baseURL/]")
+		.inferHtmlResources()
+		.acceptEncodingHeader("gzip, deflate")
+		.acceptLanguageHeader("pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,sv;q=0.6")
+		.userAgentHeader("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36")
+
+val headers_0 = Map(
+		"Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"Sec-Fetch-Dest" -> "document",
+		"Sec-Fetch-Mode" -> "navigate",
+		"Sec-Fetch-Site" -> "none",
+		"Sec-Fetch-User" -> "?1",
+		"Upgrade-Insecure-Requests" -> "1")
+
+
+
+}
+
+[/file]
+[/template]
+
+
+

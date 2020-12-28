@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generate" nsURI="org::unipampa::openmlperf::acceleo::main::generate" startHeaderPosition="29" endHeaderPosition="541">
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#/"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceMonitoring"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceMonitoring/openmlperfPerformanceMetric"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/openmlperfPerformanceExternalFile"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/openmlperfPerformanceExternalFile"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceMonitoring/openmlperfPerformanceMetric"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceMonitoring"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceMonitoring/openmlperfPerformanceMetric"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/openmlperfPerformanceExternalFile"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload"/>
+    </input>
+    <input>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting"/>
+      <takesTypesFrom href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/openmlperfPerformanceExternalFile"/>
+    </input>
+    <imports href="../services/services.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package "/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/trim">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//Diagram/projectLabel"/>
+            </source>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+          </source>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &#xA;&#xA;import scala.concurrent.duration._&#xA;&#xA;import io.gatling.core.Predef._&#xA;import io.gatling.http.Predef._&#xA;import io.gatling.jdbc.Predef._&#xA;&#xA;class "/>
+        <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/trim">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//Diagram/name"/>
+            </source>
+          </source>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" extends Simulation{&#xA;&#xA;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;object "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="scripting" referredVariable="/0/generateElement/%/%.5/scripting">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" {&#xA;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
+            <body xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="../services/services.emtl#/0/retornaTable"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="datatable" referredVariable="/0/generateElement/%/%.5/%.3/datatable">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#xA;"/>
+            <loopVariable name="datatable">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(DataTable)">
+              <source xsi:type="ocl.ecore:VariableExp" name="scripting" referredVariable="/0/generateElement/%/%.5/scripting">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting/datatables"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#xA;&#xA;&#x9;val "/>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="scripting" referredVariable="/0/generateElement/%/%.5/scripting">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting/name"/>
+            </source>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLowerCase"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = scenario(&quot;RecordedSimulation&quot;)&#xA;&#xA;&#x9;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;.exec(http(&quot;request_0&quot;)&#xA;&#x9;&#x9;&#x9;."/>
+            <body xsi:type="ocl.ecore:OperationCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_OclAny_Class/toString">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ecore:EEnum" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/METHOD"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="activity" referredVariable="/0/generateElement/%/%.5/%.7/activity">
+                    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity/method"/>
+                </source>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLowerCase"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(&quot;"/>
+            <body xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="activity" referredVariable="/0/generateElement/%/%.5/%.7/activity">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity/action"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;"/>
+            <body xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="../services/services.emtl#/0/returnTableParam"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="activity" referredVariable="/0/generateElement/%/%.5/%.7/activity">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+              </argument>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#xA;"/>
+            <loopVariable name="activity">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Activity)">
+              <source xsi:type="ocl.ecore:VariableExp" name="scripting" referredVariable="/0/generateElement/%/%.5/scripting">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting/activities"/>
+            </iterSet>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#x9;&#xA;&#x9;}&#xA;"/>
+          <loopVariable name="scripting">
+            <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Scripting)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//Scenario/scripting"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;//"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="user" referredVariable="/0/generateElement/%/%.7/user">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="user" referredVariable="/0/generateElement/%/%.7/user">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile/percentage"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="%&#xA;"/>
+          <loopVariable name="user">
+            <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(UserProfile)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//Scenario/users"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;//"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="work" referredVariable="/0/generateElement/%/%.9/work">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload/name"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" : "/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="work" referredVariable="/0/generateElement/%/%.9/work">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload/virtualUsers"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" virtual users&#xA;&#x9;&#x9;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload/RampUpTimer"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="work" referredVariable="/0/generateElement/%/%.9/work">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload/rampUpTimer"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload/RampUpTimer/time"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;"/>
+          <body xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload/RampUpUsers"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="work" referredVariable="/0/generateElement/%/%.9/work">
+                <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload/rampUpUsers"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceWorkload/RampUpUsers/virtualUsers"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <loopVariable name="work">
+            <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Workload)">
+            <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+            </source>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.unipampa.lesse.org/openmlperf#//Scenario/workloads"/>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;val httpProtocol = http&#xA;&#x9;&#x9;.baseUrl(&quot;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+            <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//Scenario/baseURL"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;)&#xA;&#x9;&#x9;.inferHtmlResources()&#xA;&#x9;&#x9;.acceptEncodingHeader(&quot;gzip, deflate&quot;)&#xA;&#x9;&#x9;.acceptLanguageHeader(&quot;pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7,sv;q=0.6&quot;)&#xA;&#x9;&#x9;.userAgentHeader(&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36&quot;)&#xA;&#xA;val headers_0 = Map(&#xA;&#x9;&#x9;&quot;Accept&quot; -> &quot;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&quot;,&#xA;&#x9;&#x9;&quot;Sec-Fetch-Dest&quot; -> &quot;document&quot;,&#xA;&#x9;&#x9;&quot;Sec-Fetch-Mode&quot; -> &quot;navigate&quot;,&#xA;&#x9;&#x9;&quot;Sec-Fetch-Site&quot; -> &quot;none&quot;,&#xA;&#x9;&#x9;&quot;Sec-Fetch-User&quot; -> &quot;?1&quot;,&#xA;&#x9;&#x9;&quot;Upgrade-Insecure-Requests&quot; -> &quot;1&quot;)&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:PropertyCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:VariableExp" name="aScenario" referredVariable="/0/generateElement/aScenario">
+              <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+            </source>
+            <referredProperty xsi:type="ecore:EAttribute" href="http://www.unipampa.lesse.org/openmlperf#//Diagram/name"/>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".scala">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aScenario">
+        <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="toUpperFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="trim">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateElement">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateElement"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aScenario">
+          <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="retornaTable">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../services/services.emtl#/0/retornaTable"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="returnTableParam">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../services/services.emtl#/0/returnTableParam"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+      <eOperations name="toString">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openmlperf_Scenario_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openmlperfPerformanceScripting_DataTable_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openmlperfPerformanceScenario_Scripting_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openmlperfPerformanceScripting_Activity_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Scripting)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(DataTable)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Activity)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(UserProfile)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Workload)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/DataTable"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/openmlperfPerformanceScripting/Activity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Scripting"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/UserProfile"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//openmlperfPerformanceScenario/Workload"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.unipampa.lesse.org/openmlperf#//Scenario"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateElement">
+      <details key="start" value="546"/>
+      <details key="end" value="2341"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateElement/%">
+      <details key="start" value="619"/>
+      <details key="end" value="2329"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateElement/%/%">
+      <details key="start" value="676"/>
+      <details key="end" value="684"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateElement/%/%.1">
+      <details key="start" value="685"/>
+      <details key="end" value="724"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateElement/%/%.1/%">
+      <details key="start" value="685"/>
+      <details key="end" value="717"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateElement/%/%.1/%/%">
+      <details key="start" value="685"/>
+      <details key="end" value="707"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateElement/%/%.1/%/%/aScenario">
+      <details key="start" value="685"/>
+      <details key="end" value="694"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateElement/%/%.2">
+      <details key="start" value="726"/>
+      <details key="end" value="868"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateElement/%/%.3">
+      <details key="start" value="869"/>
+      <details key="end" value="905"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateElement/%/%.3/%">
+      <details key="start" value="869"/>
+      <details key="end" value="898"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateElement/%/%.3/%/%">
+      <details key="start" value="869"/>
+      <details key="end" value="883"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateElement/%/%.3/%/%/aScenario">
+      <details key="start" value="869"/>
+      <details key="end" value="878"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateElement/%/%.4">
+      <details key="start" value="907"/>
+      <details key="end" value="930"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateElement/%/%.5">
+      <details key="start" value="930"/>
+      <details key="end" value="1394"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateElement/%/%.5/%">
+      <details key="start" value="982"/>
+      <details key="end" value="991"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateElement/%/%.5/%.1">
+      <details key="start" value="992"/>
+      <details key="end" value="1006"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%/%.5/%.1/scripting">
+      <details key="start" value="992"/>
+      <details key="end" value="1001"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%/%.5/%.2">
+      <details key="start" value="1008"/>
+      <details key="end" value="1012"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%/%.5/%.3">
+      <details key="start" value="1012"/>
+      <details key="end" value="1102"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%/%.5/%.3/%">
+      <details key="start" value="1065"/>
+      <details key="end" value="1067"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%/%.5/%.3/%.1">
+      <details key="start" value="1068"/>
+      <details key="end" value="1091"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%/%.5/%.3/%.1/datatable">
+      <details key="start" value="1081"/>
+      <details key="end" value="1090"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%/%.5/%.3/%.2">
+      <details key="start" value="1093"/>
+      <details key="end" value="1096"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%/%.5/%.3/datatable">
+      <details key="start" value="1018"/>
+      <details key="end" value="1039"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%/%.5/%.3/%.3">
+      <details key="start" value="1042"/>
+      <details key="end" value="1062"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%/%.5/%.3/%.3/scripting">
+      <details key="start" value="1042"/>
+      <details key="end" value="1051"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%/%.5/%.4">
+      <details key="start" value="1103"/>
+      <details key="end" value="1112"/>
+      <details key="line" value="31"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%/%.5/%.5">
+      <details key="start" value="1113"/>
+      <details key="end" value="1141"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%/%.5/%.5/%">
+      <details key="start" value="1113"/>
+      <details key="end" value="1127"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%/%.5/%.5/%/scripting">
+      <details key="start" value="1113"/>
+      <details key="end" value="1122"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%/%.5/%.6">
+      <details key="start" value="1143"/>
+      <details key="end" value="1180"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%/%.5/%.7">
+      <details key="start" value="1183"/>
+      <details key="end" value="1380"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%/%.5/%.7/%">
+      <details key="start" value="1233"/>
+      <details key="end" value="1268"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateElement/%/%.5/%.7/%.1">
+      <details key="start" value="1269"/>
+      <details key="end" value="1309"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateElement/%/%.5/%.7/%.1/%">
+      <details key="start" value="1269"/>
+      <details key="end" value="1295"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateElement/%/%.5/%.7/%.1/%/%">
+      <details key="start" value="1269"/>
+      <details key="end" value="1284"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateElement/%/%.5/%.7/%.1/%/%/activity">
+      <details key="start" value="1269"/>
+      <details key="end" value="1277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateElement/%/%.5/%.7/%.2">
+      <details key="start" value="1311"/>
+      <details key="end" value="1313"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateElement/%/%.5/%.7/%.3">
+      <details key="start" value="1314"/>
+      <details key="end" value="1329"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateElement/%/%.5/%.7/%.3/activity">
+      <details key="start" value="1314"/>
+      <details key="end" value="1322"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateElement/%/%.5/%.7/%.4">
+      <details key="start" value="1331"/>
+      <details key="end" value="1339"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateElement/%/%.5/%.7/%.5">
+      <details key="start" value="1340"/>
+      <details key="end" value="1366"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateElement/%/%.5/%.7/%.5/activity">
+      <details key="start" value="1357"/>
+      <details key="end" value="1365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateElement/%/%.5/%.7/%.6">
+      <details key="start" value="1368"/>
+      <details key="end" value="1371"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateElement/%/%.5/%.7/activity">
+      <details key="start" value="1189"/>
+      <details key="end" value="1208"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateElement/%/%.5/%.7/%.7">
+      <details key="start" value="1210"/>
+      <details key="end" value="1230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateElement/%/%.5/%.7/%.7/scripting">
+      <details key="start" value="1210"/>
+      <details key="end" value="1219"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateElement/%/%.5/%.8">
+      <details key="start" value="1381"/>
+      <details key="end" value="1388"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateElement/%/%.5/scripting">
+      <details key="start" value="936"/>
+      <details key="end" value="957"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateElement/%/%.5/%.9">
+      <details key="start" value="960"/>
+      <details key="end" value="979"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateElement/%/%.5/%.9/aScenario">
+      <details key="start" value="960"/>
+      <details key="end" value="969"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateElement/%/%.6">
+      <details key="start" value="1395"/>
+      <details key="end" value="1396"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateElement/%/%.7">
+      <details key="start" value="1396"/>
+      <details key="end" value="1483"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateElement/%/%.7/%">
+      <details key="start" value="1441"/>
+      <details key="end" value="1444"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateElement/%/%.7/%.1">
+      <details key="start" value="1445"/>
+      <details key="end" value="1454"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateElement/%/%.7/%.1/user">
+      <details key="start" value="1445"/>
+      <details key="end" value="1449"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateElement/%/%.7/%.2">
+      <details key="start" value="1456"/>
+      <details key="end" value="1457"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateElement/%/%.7/%.3">
+      <details key="start" value="1458"/>
+      <details key="end" value="1473"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateElement/%/%.7/%.3/user">
+      <details key="start" value="1458"/>
+      <details key="end" value="1462"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateElement/%/%.7/%.4">
+      <details key="start" value="1475"/>
+      <details key="end" value="1477"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateElement/%/%.7/user">
+      <details key="start" value="1402"/>
+      <details key="end" value="1420"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateElement/%/%.7/%.5">
+      <details key="start" value="1423"/>
+      <details key="end" value="1438"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateElement/%/%.7/%.5/aScenario">
+      <details key="start" value="1423"/>
+      <details key="end" value="1432"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateElement/%/%.8">
+      <details key="start" value="1484"/>
+      <details key="end" value="1485"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateElement/%/%.9">
+      <details key="start" value="1485"/>
+      <details key="end" value="1652"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateElement/%/%.9/%">
+      <details key="start" value="1531"/>
+      <details key="end" value="1534"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateElement/%/%.9/%.1">
+      <details key="start" value="1535"/>
+      <details key="end" value="1544"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateElement/%/%.9/%.1/work">
+      <details key="start" value="1535"/>
+      <details key="end" value="1539"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateElement/%/%.9/%.2">
+      <details key="start" value="1546"/>
+      <details key="end" value="1549"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateElement/%/%.9/%.3">
+      <details key="start" value="1550"/>
+      <details key="end" value="1567"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateElement/%/%.9/%.3/work">
+      <details key="start" value="1550"/>
+      <details key="end" value="1554"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateElement/%/%.9/%.4">
+      <details key="start" value="1569"/>
+      <details key="end" value="1586"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateElement/%/%.9/%.5">
+      <details key="start" value="1587"/>
+      <details key="end" value="1608"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateElement/%/%.9/%.5/%">
+      <details key="start" value="1587"/>
+      <details key="end" value="1603"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateElement/%/%.9/%.5/%/work">
+      <details key="start" value="1587"/>
+      <details key="end" value="1591"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateElement/%/%.9/%.6">
+      <details key="start" value="1610"/>
+      <details key="end" value="1613"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateElement/%/%.9/%.7">
+      <details key="start" value="1614"/>
+      <details key="end" value="1643"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateElement/%/%.9/%.7/%">
+      <details key="start" value="1614"/>
+      <details key="end" value="1630"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateElement/%/%.9/%.7/%/work">
+      <details key="start" value="1614"/>
+      <details key="end" value="1618"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateElement/%/%.9/%.8">
+      <details key="start" value="1645"/>
+      <details key="end" value="1646"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateElement/%/%.9/work">
+      <details key="start" value="1491"/>
+      <details key="end" value="1506"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateElement/%/%.9/%.9">
+      <details key="start" value="1509"/>
+      <details key="end" value="1528"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateElement/%/%.9/%.9/aScenario">
+      <details key="start" value="1509"/>
+      <details key="end" value="1518"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateElement/%/%.10">
+      <details key="start" value="1653"/>
+      <details key="end" value="1690"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%/%.11">
+      <details key="start" value="1691"/>
+      <details key="end" value="1708"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/%/%.11/aScenario">
+      <details key="start" value="1691"/>
+      <details key="end" value="1700"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateElement/%/%.12">
+      <details key="start" value="1710"/>
+      <details key="end" value="2322"/>
+      <details key="line" value="63"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateElement/%/%.13">
+      <details key="start" value="626"/>
+      <details key="end" value="657"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElement/%/%.13/%">
+      <details key="start" value="626"/>
+      <details key="end" value="640"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateElement/%/%.13/%/aScenario">
+      <details key="start" value="626"/>
+      <details key="end" value="635"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateElement/%/%.13/%.1">
+      <details key="start" value="648"/>
+      <details key="end" value="656"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateElement/%/%.14">
+      <details key="start" value="666"/>
+      <details key="end" value="673"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateElement/aScenario">
+      <details key="start" value="579"/>
+      <details key="end" value="599"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

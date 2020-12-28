@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openmlperf:Scenario xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:openmlperf="http://www.unipampa.lesse.org/openmlperf" name="ghjghj" projectLabel="ghjghj" projectAuthor="ghjghj" description="ghjhghj" baseURL="jgjgh">
+  <users name="New User Profile" userprofiletoscript="//@userProfileToScript.0"/>
+  <workloads>
+    <rampUpTimer/>
+    <rampDownUsers/>
+    <rampUpUsers/>
+    <rampDownTimer/>
+  </workloads>
+  <scripting name="New Script" userprofiletoscript="//@userProfileToScript.0"/>
+  <userProfileToScript userprofile="//@users.0" scripting="//@scripting.0"/>
+</openmlperf:Scenario>
